@@ -3,6 +3,13 @@
 All notable changes to this project are recorded here.
 Format: Semantic Versioning (MAJOR.MINOR.PATCH).
 
+## [v0.3.1] — GitHub Pages support
+### Added
+- .nojekyll so GitHub Pages serves the static files as-is (no Jekyll processing).
+### Notes
+- All asset paths are relative, so the site works correctly when served from a
+  project sub-path like https://<user>.github.io/getbytesitsolutions/.
+
 ## [v0.3.0] — Inner pages + shared design system
 ### Added
 - New pages: services.html, package.html, about.html, contact.html.
