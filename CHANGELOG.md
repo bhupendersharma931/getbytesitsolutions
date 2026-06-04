@@ -3,6 +3,16 @@
 All notable changes to this project are recorded here.
 Format: Semantic Versioning (MAJOR.MINOR.PATCH).
 
+## [v0.4.0] — Live staging folder + scroll animations
+### Added
+- /v0.4.0/ folder: a full, independent copy of the site for live testing on
+  GitHub Pages at .../getbytesitsolutions/v0.4.0/ — production root stays stable.
+- Scroll-reveal animations (IntersectionObserver) on below-the-fold sections;
+  respects prefers-reduced-motion.
+- Visible "STAGING · v0.4.0" badge so the test build is distinguishable from prod.
+### Workflow
+- Develop & test in the versioned folder; once approved, promote to root.
+
 ## [v0.3.1] — GitHub Pages support
 ### Added
 - .nojekyll so GitHub Pages serves the static files as-is (no Jekyll processing).
