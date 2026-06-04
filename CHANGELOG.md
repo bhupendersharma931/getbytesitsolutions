@@ -3,6 +3,20 @@
 All notable changes to this project are recorded here.
 Format: Semantic Versioning (MAJOR.MINOR.PATCH).
 
+## [v0.3.0] — Inner pages + shared design system
+### Added
+- New pages: services.html, package.html, about.html, contact.html.
+- Services page: detailed service cards + 4-step process section.
+- Packages page: 3-tier pricing (Starter / Business / Enterprise).
+  NOTE: prices are placeholders — update to your real figures.
+- About page: company story, why-us panel, stats.
+- Contact page: contact form + contact info (email, webmail, location, socials).
+### Changed
+- Refactored shared CSS into css/styles.css and JS into js/main.js (no more
+  duplicated code across pages); logo moved to assets/logo.png.
+- index.html now uses the shared stylesheet/script and links to real pages.
+- Global nav links to actual pages with an active-page indicator.
+
 ## [v0.2.0] — Brand colors + dark/light mode
 ### Added
 - Embedded the official GetBytes logo (red/blue) in header and footer.

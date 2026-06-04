@@ -9,12 +9,16 @@ Redeveloped marketing website for GetBytes IT Solutions (Delhi-based software, w
 - Original design (no third-party/copyrighted templates). Fonts via Google Fonts (Open Font License).
 
 ## Structure
-- `index.html` — homepage (self-contained for v0.1.0)
+- `index.html`, `services.html`, `package.html`, `about.html`, `contact.html` — pages
+- `css/styles.css` — shared stylesheet
+- `js/main.js` — shared scripts (theme toggle, menu, contact form)
+- `assets/logo.png` — brand logo
 - `CHANGELOG.md` — revision history / notes
 - `SECURITY.md` — security hardening recommendations
 
 ## Roadmap
-- [ ] Approve homepage design direction (v0.1.0)
-- [ ] Services, Package, About, Contact pages
+- [x] Homepage design (v0.1.0–v0.2.0)
+- [x] Services, Package, About, Contact pages (v0.3.0)
+- [ ] Replace placeholder prices on package.html with real figures
 - [ ] Wire contact form to backend / form service
 - [ ] Apply security headers on the server
