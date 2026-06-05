@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GetBytes IT Solutions — Aurora (Option B)</title>
+<meta name="description" content="GetBytes IT Solutions — software, web and mobile development in Delhi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#FF3B2E;--blue:#5BB7F0;--blue-deep:#2E90D4;
+    --bg:#06070B;--card:rgba(255,255,255,.04);--ink:#EAF0F7;--muted:#93A0B5;--line:rgba(255,255,255,.1);
+    --font:"Sora",sans-serif;--maxw:1140px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:var(--font);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative}
+  /* aurora blobs */
+  .aurora{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+  .aurora span{position:absolute;border-radius:50%;filter:blur(90px);opacity:.55}
+  .a1{width:520px;height:520px;background:#D8261A;top:-120px;left:-80px;animation:float1 16s ease-in-out infinite}
+  .a2{width:480px;height:480px;background:#2E90D4;top:120px;right:-120px;animation:float2 19s ease-in-out infinite}
+  .a3{width:420px;height:420px;background:#7a1fd8;bottom:-160px;left:30%;opacity:.4;animation:float1 22s ease-in-out infinite}
+  @keyframes float1{0%,100%{transform:translate(0,0)}50%{transform:translate(40px,50px)}}
+  @keyframes float2{0%,100%{transform:translate(0,0)}50%{transform:translate(-50px,30px)}}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px;position:relative;z-index:1}
+  h1,h2,h3{line-height:1.07;letter-spacing:-.025em;font-weight:700}
+  .badge-opt{position:fixed;left:16px;bottom:16px;z-index:99;background:#fff;color:#06070B;font-weight:700;font-size:.74rem;padding:8px 14px;border-radius:100px}
+
+  header{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(6,7,11,.6);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .brand img{height:30px;display:block;background:#fff;padding:5px 9px;border-radius:8px}
+  .menu{display:flex;gap:28px;align-items:center}
+  .menu a{color:var(--muted);font-weight:500;font-size:.93rem}
+  .menu a:hover{color:#fff}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(100deg,#D8261A,#2E90D4);color:#fff;
+    font-weight:600;padding:12px 22px;border-radius:12px;font-size:.92rem;transition:transform .2s,box-shadow .2s;
+    box-shadow:0 0 0 1px rgba(255,255,255,.08),0 14px 34px -12px rgba(216,38,26,.7)}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 18px 40px -10px rgba(46,144,212,.7)}
+  .btn-ghost{background:rgba(255,255,255,.05);border:1px solid var(--line);box-shadow:none}
+  .burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
+  .burger span{width:24px;height:2px;background:#fff}
+
+  .hero{padding:96px 0 70px;text-align:center}
+  .tagpill{display:inline-flex;gap:9px;align-items:center;background:rgba(255,255,255,.05);border:1px solid var(--line);
+    padding:8px 16px;border-radius:100px;font-size:.82rem;color:var(--muted)}
+  .tagpill b{background:linear-gradient(100deg,#FF3B2E,#5BB7F0);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:700}
+  .hero h1{font-size:clamp(2.7rem,6.5vw,5rem);margin:26px auto 20px;max-width:15ch}
+  .hero h1 .g{background:linear-gradient(100deg,#FF3B2E,#5BB7F0 70%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p{font-size:1.18rem;color:var(--muted);max-width:52ch;margin:0 auto 32px}
+  .hero-cta{display:flex;gap:13px;justify-content:center;flex-wrap:wrap}
+
+  section{padding:70px 0}
+  .sec-head{text-align:center;max-width:54ch;margin:0 auto 44px}
+  .sec-head h2{font-size:clamp(2rem,4vw,3rem)}
+  .sec-head p{color:var(--muted);margin-top:12px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .glass{background:var(--card);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:20px;padding:28px;
+    transition:transform .25s,border-color .25s,background .25s}
+  .glass:hover{transform:translateY(-6px);border-color:rgba(91,183,240,.5);background:rgba(255,255,255,.06)}
+  .glass .ico{width:48px;height:48px;border-radius:13px;display:grid;place-items:center;font-size:1.3rem;margin-bottom:16px;
+    background:linear-gradient(135deg,rgba(216,38,26,.3),rgba(46,144,212,.3));border:1px solid var(--line)}
+  .glass h3{font-size:1.22rem;margin-bottom:8px}
+  .glass p{color:var(--muted);font-size:.94rem}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:18px}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;text-align:center}
+  .stat .num{font-size:2.3rem;font-weight:800;background:linear-gradient(100deg,#FF3B2E,#5BB7F0);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .stat .lbl{color:var(--muted);font-size:.86rem}
+  .cta{text-align:center;background:var(--card);border:1px solid var(--line);border-radius:26px;padding:54px;backdrop-filter:blur(8px)}
+  .cta h2{font-size:clamp(1.9rem,4vw,2.7rem);margin-bottom:12px}
+  .cta p{color:var(--muted);max-width:46ch;margin:0 auto 24px}
+  footer{padding:44px 0;color:var(--muted);font-size:.9rem;text-align:center}
+  @media(max-width:860px){.menu{display:none}.burger{display:flex}.grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.cta{padding:34px}}
+</style>
+</head>
+<body>
+<div class="aurora"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
+<div class="badge-opt">OPTION B · AURORA</div>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIIAAAA9CAMAAABWQUFvAAAABGdBTUEAALGPC/xhBQAAAwBQTFRF4XNt7OLh3nBp6vb8r9v030ZBqtv211xUrtv1t+D5st710kY91A8F9d3c8dTU6PX56qKg+eLg9NzY2T43st3333ly2ElC6qaj7KmlpaOik5CP3NvauLa2x+f37Kyp8MK+4XFs8cbE43545Y2I3mlj3lxW0yYd0er2++/vsd35nJqZ9fX17Lm3+Obk6Z2Y1iAY+vPx9Pr72FFK/Pb13vH50ez44/T8/fr51iQZxOb544N8sN73s9720xgO3CQa7LKts7Gx2u/5dXJwioeGYV1b6+rpa2hmPjo4rqyrlpOS4ODf1CMa205H3mJd2lVO3SMc+v382iIb6vb7uuD38Ly67+7uqqim/Pj343dyZmNhzer4oJ6e3d3cb2xr5OPign99AwAA+evp5IeC3Scg88vI9djV2SQY5vT8zczL+Pj4xcTDwcG/v7288vHx4vL51S8m89HP8vr82yAW1Coi1jsz2Skgu+L27Pj755SQeHV0AAAAREA+U1BN2NbWmJaU1NPS1e352DYu7/j8h4WDNTAuOjYzysnISkdEjImI2RwTx8bG1xgP1BsSc29tDggGsd32W1dVvLm4Mi0r9PPz/v79fnp42CYdjoyLv+P2GRQR2tjZLCcl+Pz92yUesN33sd/3wuX3rdz3FQ8NHBYUEQsIIBwYgHx75+bm0tHQ0M/O/f/+//37+vn51x0Ts9/2KyUjz87NJyEfCgUC2R8W//7+2SQcyef37OvrBwEA+vv6//z8rt33/Pz6LyonxuX1/fz8/v79sN74s975hYOB3CYd2SYc7bSytN/3/v7/2yUc//Hw/f78Ix4b6amm1BgN1yEYst75st/3/Pv71zIp9Pv9zun54XBprdv12SEY1RYMveL3s9/5rtz1/f//6vf7/vv7/v/+2ykgsd/52igg3vD75/T9sd73/Pz99t/c2iYc10E61k9Hsd332yIZtN/5td/2//7//f7+2iQb2ice//7+2SYbs9/32iUd/v7+///9s973/v/////+st732iUc////y5U7dgAAC/1JREFUWMO1mAdUFOcWx+e8vJreTGKPLRo79t6xBCuIiogFS1BBQYqF3hVp4tKUFukiZZels85BILBv92lYU9Dgc5E8zfo0lD3sDjuz3PfNbBtOIOzCeX/OYdvM9/2+e+93v3sHA52k/MY89ILPnzV+9rLJf5s3b+t/Tde8t2ZC55m7pWNLGd1lKy0hIeGxR0Ja6cJfzu/spChSSjETY3oEfjUH8Fm7l211tVjS3VXSW1LSZapKkq9s/QDMHj8rUBv0TKOmJubdve+anj1Tv+kx1TIJKGlfhEqcnH/M/qOV+a/rd/Qqk5W9wt5uk1VnMQ5wv4/vqQqQFApFE5JKI+2nFWr6C/V3r6LSzuwEko2Ql4cf2+d6dVerXNbbrSypL1EOQW1Xt80FMyu1Sjdvk0FqzacC9E7dlFqgaoiqKg2A21I9Ag5H7P3vx7XKe5GUvUOTbNfDmZA39ZXaKCl+jkqwpDr1COSxefmv3Yc6t1by/M/JSst2IxGaVPdqPCzhCYPQ0QGrH+bXyXvjhkUgK/Z3huqlrwqMQ1AVpDbULP0eSIRA4PCZa7G8d7gqmWMPeWcKnqnURksRtZZBwOFb9+ETCJNPfHSErEir+i3VeISGmgQX5IincMy/mU0gpONRKZObpmT3Oe8DtSDq54YC1R+qjzMUf14EGNoL268cZZmzPk6pdG89Ktzx2iSduLJ1Prg8TmlKVdf8gZ7XNDWonq3QI7QsFGEiclJ4q6yPRZO7ix+Fn3V7aZrcxgN/gdXjweSx4kuUIfRmSBm7EwPnh6vcWQTK+lX5Z3/8dMLxD9/51TRJgDBzMfv+j+Vi9nVCTTsLISEJWzzxamt9tx5AVnLu4YUP9pJgujgo0/VQg13VCJb/qOmL8I7rjnpDICQLi6ccJwmgOJWV/EpTxKlkUtxgArID0qpU+lhYvrQCm321zeAEpWzO59MA58P/UY1wt0pnBZWq6gcRtv11PSvFFm+bJsU79ZdXLn5qnDhoaCOFts1ynRVSVS0LejDXHUp2in0XJB1SLQAJHcYujSSMtlzS1FR9clDUWAUAVlLPOpyWLIPFrPiCCZOxH43Rn2ZC5ZnS/T8Mrv3701Y816em31L80EnZXSLUEzQ/PA6EnoAgp21/+/4jI/T22Q/BLOGvLUbom5blrMOy6i59TJ2oM8RC8TxgBQKQ48Jb2wZVa5vc/X3g+0U1GCOFwpChXyGCHhKwLqUBoXkEdGo3NkXyyWmfNA9+eimFcee2S6jzHikqOsIHE+uUfGb1QxI9G9Ydx3LEBVKHAD0cmJ3fZsQRWS+LmwCihS0KtWlqUvtJezgkhRCUbAS9FUhp4xG3E8nG1EpXRuBg2X5PZSJCgdrKz4wuojFhPcsR9iDSpuYOHOwfJAu7B/VD3A7/D2FnaZWpBOrnTSktaQEoU2HKbkO5VryNSfRMVwEfuDXLBi0mhXHu4bNJOPOmqW7QpOeaNDO0I3bVGU7qYre5T7QIi2FffvNA6jIYoe7KvFmQlLA89bnRMjCs+O3L/Z2A7YpbpR9wl/s4VERpstK7b519OJDcS/SxKLRYjQpGVUN7Q7txKviYVWErFFHvAfZFtyEcZfnbqzmcRiYc9v5zIM0//pd83WZtzZ+8mBIF/Nt4WfpZPf/OcFhXlVZjn7w27H1ZV9wFWIw30k2udICD9zYOk/KParHlzf4T4GkP9BgtigNnGgwI6hXtLtikfFb6aTv3cDdI6AabQieUlOpHEnB2a5ZrQ1j4YCJIgKIaO4wVSTZ2Pk4xBK+qZRHmbFFniHtl6wP/1SJpHoffMcAhyZdKJqIKg75FKJMVv5xF8pkz1VhRFEGlpRh2sCrFD5u77Qo7B7YWn112BKUF0W1pv4bMg/Ff6PeQcMlswKUUMq/RQq5MelzDskJNKQa7LYSsArpLfuLBS/vjVGP/C+PD3Cm6tN0tO7d9L8GhTFMerH3zniEW1DVLMZj/+dVWVgpSynvzl5z9ZMSFz1Z/249mTppTp7OBzGI8wPm1v5iitWtL21NZ4ah+NRa1Ms5u59r6pEF51+vm4gcDSZ+X2vK3LYakuy0fvzJNfTNk1UIMtZSfWqz6/aEsG0j6rHTU9RhqXloa1MORKmUBhg4kvn04CgdTHy603p/4lHLxSF0xLAR1VADqrDsb9+4LNxWhRL7D7V3A/aoUw5m/AB1USfQjDpycOyJcKDStl28NvwB5Lu2qptRhIDT9TBfxqAEgcdh74Ytm9t4c1AhtV7bOgsr9NfdUw0FQtIxNohBCj7Sx88mTmS8fFMvlyhLj/CHrWvI+PH2jXZVaMPRIVKurEgKoRkyfc2ZN9A8vPuouiyupN+bJ1pS9nMq7UaohTo+6mSaFOiXtPF016buGSnDe91H41VVH3dvkg7lE1nx2NyoTGoa8GxpUDcu/sZpqhg7OPg+ApeB8YZv/o0fFr4Wtg+jBZKjcubQGtQVDkUr9qiXKY/97JAoCNkIjgaOKae6xz5ZNeem6cuX9R/cH0sqVj1yPP6H8fmqpYjqkn0zT36PaPZYuXBQgBSnZ9zE48xAWR/8kR351PrZ79bh/DaxPd5Od/POLvh6K/vPG+QCXChHT5sPvEZA7cFx3Rj4ZsI0m6YaTkpr0WEF/VDLvgRTd1v3CpCZ68QSuUbVIysnLQ0ULRXG0X1GA/ji4RCJ5wYyAS14Q0g5AdQJejaMaQlqNbpLi1VpJpSL6HxKnuqKigv4NCcdfoFoBzYLYb3fiuIQemWBZoc8jIu0HCWsFoLla92KcGLfqX1gi+nyDoW7+YNgBApxyfX2LinJ8i6y1/T0O5jm5SA7eqC7D4bqD47XTB3ARff2pg1pnHQz7ir66qMgJOAdycnIdcn1zRr+A60VFM9A8xJ0bjtccfU/SM1bkhh1A/E6nbuDoDnw0PXJRbhl9NwYVEJ8eWwGO6VxuTBC3MHKPZvkErPGKEWdmihM96XU42BSWH77lGV9BX39rC18TEvHiQ+gzbAoOAZFXIvdmkEAsDp0BOcHBN6AazLOCMy7xYiJGoxWUbbrp6Q0QkmhzHeB67CYuGjlTbEvPhcEdqC2PkMDorMCL4nS79RcdAGcIyoIiPbOQYregL7JDeZts18RmZkynr790mbGCFA5lXKQRCrmnALfNqg2NDL18yOckOBQWoulOxvIK14/xCSq3cQIwF6RHxkog7HA0QrCNFG+khz4UQs9FIwTyIuh4hOwYri8QOjc4igUHNT4hKsAnUUCvpTYx5mQFBB6OJzWGqr3FIAhuhoGED0RgeRZIUJlfJLh5A8BbnD4S3XOam+4IUHYzaFNiGITwohHPhsR1zDo1k2mtgNM9XLZAnINetAgOYvEaa/Myp5PIkbCRFwHEHXCISc8lIPCSHkFjBUFhGD0kUXs4FiHgUHSzECGMKQ/9Co1eFl0+HSFwPUcJQjtzy2krRERGZ5eVWV+vYEAMCLgGQResBBWdfouWYDr6bgMvnoY8GJx+DRDC5X4QSBDRCBWEDmFk+QZrdOuMdYcvI4TCGO9a3h5vBuGUIJEeOdHrhs4RGgRCg2DYdU626+zs7LwS0Zdgw8vqwCXgHZR+ioD1l+J3ajY1jXDyBdzs1wp7yr0OIkDrjYdHMQgO1kFBjjyEQEBRbYSdnU1w5AZWOPaDoDEHAUHizQCxGaF0ohgpFmdLIJ53EddZYSO6X8IVhPSDEJYRE4IQDgRHbmYQToFPplcGg6C5e0+G1x0UDX3DkYVAQNg1Wj5ccQgyHTd9y2jz06EZNPeaTMEeX29fa7TQyOBrZdnx6cFMMtGGIw65AgFCMA+NtMs1916XgXYoCseYMLjjlX6LdkSZIz3yGpuMaJBoELIubWQQDnITi/QIOHimc8VicWTkRhy51ycxI9iTy/M8gKJYkpWRKAjibgbcyYvH9dx065atZiMfunQR7Qwmkr3R+k8F8QSeQTzuGjoviLmnUVrILPdCO8IRjSvmZpaLx2hiAW2b2jH0GsDJZ1Q2ywrTAy8j+Tg6MUS58dGhEZuzmV9mhPisX38olx55c63dulEhmrxNnD7kCHTyy96yhc57nK9sbUI3TGfy4YwtPiiR4nsCN6MdNno9PXL8SCYa4X9kUnUjAe/95QAAAABJRU5ErkJggg==" alt="GetBytes IT Solutions"></a>
+    <nav class="menu"><a href="#">Services</a><a href="#">Packages</a><a href="#">About</a><a href="#">Contact</a><a class="btn" href="#">Get a quote</a></nav>
+    <button class="burger" aria-label="menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <span class="tagpill"><b>◆</b> Delhi-based software studio</span>
+      <h1>Build the <span class="g">future</span> of your business.</h1>
+      <p>Web apps, mobile apps, ERP and e-commerce — engineered for performance, security and scale.</p>
+      <div class="hero-cta"><a class="btn" href="#">Start a project →</a><a class="btn btn-ghost" href="#">Explore services</a></div>
+    </div>
+  </section>
+  <section>
+    <div class="wrap">
+      <div class="sec-head"><h2>What we build</h2><p>One accountable partner across the whole stack.</p></div>
+      <div class="grid">
+        <div class="glass"><div class="ico">🌐</div><h3>Web Applications</h3><p>Custom CMS, e-commerce and ERP platforms built to scale.</p></div>
+        <div class="glass"><div class="ico">📱</div><h3>Mobile Apps</h3><p>Native &amp; cross-platform Android and iOS with clean UX.</p></div>
+        <div class="glass"><div class="ico">🏢</div><h3>ERP &amp; Management</h3><p>School, college, hospital and institute systems.</p></div>
+        <div class="glass"><div class="ico">📈</div><h3>SEO &amp; Marketing</h3><p>Technical SEO and campaigns that grow real traffic.</p></div>
+        <div class="glass"><div class="ico">☁️</div><h3>Web Hosting</h3><p>Secure, monitored hosting with 99.9% uptime.</p></div>
+        <div class="glass"><div class="ico">🛠️</div><h3>Custom Software</h3><p>Bespoke cloud apps, API integrations and support.</p></div>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="num">10+</div><div class="lbl">Years</div></div>
+        <div class="stat"><div class="num">150+</div><div class="lbl">Projects</div></div>
+        <div class="stat"><div class="num">99.9%</div><div class="lbl">Uptime</div></div>
+        <div class="stat"><div class="num">24/7</div><div class="lbl">Support</div></div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="wrap"><div class="cta"><h2>Let's build something brilliant</h2><p>Tell us about your project and we'll reply within one business day.</p><a class="btn" href="#">Get a free quote →</a></div></div>
+  </section>
+</main>
+<footer><div class="wrap">© <span id="y"></span> GetBytes IT Solutions — All rights reserved.</div></footer>
+<script>document.getElementById("y").textContent=new Date().getFullYear();</script>
+</body>
+</html>

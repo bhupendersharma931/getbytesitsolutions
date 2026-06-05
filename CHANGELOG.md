@@ -3,6 +3,15 @@
 All notable changes to this project are recorded here.
 Format: Semantic Versioning (MAJOR.MINOR.PATCH).
 
+## [v0.5.0] — Alternative design directions (theme options)
+### Added
+- /themes/bento/ — Option A: light modern-SaaS look with a bento tile grid (Plus Jakarta Sans).
+- /themes/aurora/ — Option B: dark theme with animated red/blue aurora gradients and glassmorphism (Sora).
+- /themes/editorial/ — Option C: bold editorial/Swiss layout, oversized serif headlines (Fraunces + Hanken).
+- Each is a self-contained, live-testable homepage demo at its own Pages sub-path.
+### Purpose
+- Design exploration. Once a direction is chosen, it will be built out across all pages.
+
 ## [v0.4.0] — Live staging folder + scroll animations
 ### Added
 - /v0.4.0/ folder: a full, independent copy of the site for live testing on
