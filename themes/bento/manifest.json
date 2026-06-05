@@ -1,0 +1,5 @@
+{
+  "name":"GetBytes IT Solutions","short_name":"GetBytes","start_url":".","display":"standalone",
+  "background_color":"#0B0E13","theme_color":"#D8261A",
+  "icons":[{"src":"assets/favicon.png","sizes":"64x64","type":"image/png"}]
+}

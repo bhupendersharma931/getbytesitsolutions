@@ -3,6 +3,23 @@
 All notable changes to this project are recorded here.
 Format: Semantic Versioning (MAJOR.MINOR.PATCH).
 
+## [v0.7.0] — New Brutalist theme + full feature set on all themes
+### Added
+- New theme: themes/brutalist/ — bold neo-brutalist look (Archivo + Space Mono,
+  hard shadows, thick borders), full 6-page site.
+- New page on every theme: work.html — filterable portfolio (Web / Mobile / ERP).
+- Testimonials section + FAQ accordion on every homepage.
+- Animated stat counters (count up on scroll).
+- WhatsApp floating chat button (set WHATSAPP_NUMBER in js/app.js to enable).
+- Auto theme mode: follows the visitor's device setting until they pick light/dark.
+- SEO pack on every page: Open Graph + Twitter cards + JSON-LD LocalBusiness,
+  plus per-theme robots.txt and sitemap.xml.
+- Favicon + social share image (assets/favicon.png, assets/og-image.png) from the logo.
+- PWA on every theme: manifest.json + service worker (installable, works offline).
+### Notes
+- All four themes (Bento, Aurora, Editorial, Brutalist) now share this feature set.
+- Portfolio items and package prices are placeholders — replace with real content.
+
 ## [v0.6.0] — Three complete theme websites (Bento / Aurora / Editorial)
 ### Added
 - Full 5-page sites for each theme (index, services, package, about, contact):
