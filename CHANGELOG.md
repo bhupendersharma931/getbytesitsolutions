@@ -3,6 +3,21 @@
 All notable changes to this project are recorded here.
 Format: Semantic Versioning (MAJOR.MINOR.PATCH).
 
+## [v0.6.0] — Three complete theme websites (Bento / Aurora / Editorial)
+### Added
+- Full 5-page sites for each theme (index, services, package, about, contact):
+  - themes/bento/    — light modern-SaaS bento look (Plus Jakarta Sans)
+  - themes/aurora/   — animated red/blue gradient + glassmorphism (Sora)
+  - themes/editorial/— bold editorial/Swiss, serif headlines (Fraunces + Hanken)
+- Dark/light toggle on ALL three themes (remembers choice; sensible default per theme).
+- Functional contact form (Formspree-ready): validation + honeypot + async submit
+  with success/error status. Add your Formspree ID in each theme's js/app.js.
+- Per-theme shared CSS (css/style.css) + JS (js/app.js) + logo; scroll-reveal animations.
+### Notes
+- Each theme is independent and live-testable at its own Pages sub-path.
+- Package prices remain placeholders — update to real figures.
+- Production root is unchanged; pick a theme and it will be promoted to root.
+
 ## [v0.5.0] — Alternative design directions (theme options)
 ### Added
 - /themes/bento/ — Option A: light modern-SaaS look with a bento tile grid (Plus Jakarta Sans).
