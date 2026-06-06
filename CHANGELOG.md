@@ -3,6 +3,25 @@
 All notable changes to this project are recorded here.
 Format: Semantic Versioning (MAJOR.MINOR.PATCH).
 
+## [v1.0.0] — Production launch (Terminal theme live at root)
+### Changed
+- Promoted the Terminal / Code-Editor theme to the production root. The live site at
+  https://bhupendersharma931.github.io/getbytesitsolutions/ now serves this theme.
+- All canonical/OG/sitemap URLs repointed to the root domain.
+- Root shared assets updated: css/style.css, js/app.js, assets/ (logo, favicon, og-image),
+  manifest.json, sw.js, robots.txt, sitemap.xml.
+- Removed obsolete early-version files (css/styles.css, js/main.js).
+### Site (13 pages)
+- Home, Services (+ Web/Mobile/SEO/Hosting detail pages), Work (portfolio),
+  Blog (+ post), Quote calculator, Packages, About, Contact.
+### Features
+- Dark/light (auto) theme, testimonials, FAQ, animated counters, WhatsApp button,
+  SEO pack (OG/Twitter/JSON-LD), favicon + social image, PWA (installable/offline).
+### Notes
+- The alternative themes remain under /themes/ as archived options and can be deleted anytime.
+- To personalise: set WHATSAPP_NUMBER and FORM_ENDPOINT in js/app.js; replace placeholder
+  prices (package.html), portfolio items (work.html) and blog content.
+
 ## [v0.9.0] — New unique theme: Terminal / Code-Editor
 ### Added
 - themes/terminal/ — a fresh, original developer/IDE aesthetic (not derived from any
