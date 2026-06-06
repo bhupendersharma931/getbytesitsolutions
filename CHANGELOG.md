@@ -3,6 +3,17 @@
 All notable changes to this project are recorded here.
 Format: Semantic Versioning (MAJOR.MINOR.PATCH).
 
+## [v0.9.0] — New unique theme: Terminal / Code-Editor
+### Added
+- themes/terminal/ — a fresh, original developer/IDE aesthetic (not derived from any
+  existing theme): syntax-highlighted code-editor hero, live terminal prompt,
+  "// comment" section labels, monospace UI chrome. Outfit + JetBrains Mono.
+- Dark (default) and light (VS Code-style) modes; brand red/blue used as syntax colors.
+- Full 13-page site with the complete feature set (testimonials, FAQ, portfolio,
+  blog, quote calculator, animated counters, WhatsApp, SEO pack, favicon/OG, PWA).
+### Notes
+- Six themes total now: Bento, Aurora, Editorial, Brutalist, Minimal, Terminal.
+
 ## [v0.8.0] — Minimal theme + functional pages (service pages, blog, quote calculator)
 ### Added
 - New theme: themes/minimal/ — clean Swiss-style look (Manrope + Space Mono, lots of whitespace).
