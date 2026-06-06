@@ -3,6 +3,20 @@
 All notable changes to this project are recorded here.
 Format: Semantic Versioning (MAJOR.MINOR.PATCH).
 
+## [v0.8.0] — Minimal theme + functional pages (service pages, blog, quote calculator)
+### Added
+- New theme: themes/minimal/ — clean Swiss-style look (Manrope + Space Mono, lots of whitespace).
+- Service detail pages on every theme: service-web, service-mobile, service-seo, service-hosting
+  (linked from the Services page "Deep dive" section).
+- Blog on every theme: blog.html (listing) + blog-post.html (sample article).
+- Interactive quote calculator (quote.html): pick project type, size and add-ons for a live
+  estimate; linked from the Packages page.
+### Notes
+- Every theme now has 13 pages and the full feature set (dark/light, testimonials, FAQ,
+  portfolio, animated counters, WhatsApp, SEO pack, favicon/OG, PWA).
+- Five themes total: Bento, Aurora, Editorial, Brutalist, Minimal.
+- Blog posts, portfolio items and prices are placeholders to replace with real content.
+
 ## [v0.7.0] — New Brutalist theme + full feature set on all themes
 ### Added
 - New theme: themes/brutalist/ — bold neo-brutalist look (Archivo + Space Mono,

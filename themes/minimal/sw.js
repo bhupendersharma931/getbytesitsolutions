@@ -1,0 +1,4 @@
+var C="gb-minimal-v1";var A=["./","./index.html","./services.html","./work.html","./package.html","./about.html","./contact.html","./css/style.css","./js/app.js","./assets/logo.png"];
+self.addEventListener("install",function(e){e.waitUntil(caches.open(C).then(function(c){return c.addAll(A);}).then(function(){return self.skipWaiting();}));});
+self.addEventListener("activate",function(e){e.waitUntil(caches.keys().then(function(k){return Promise.all(k.map(function(n){if(n!==C)return caches.delete(n);}));}).then(function(){return self.clients.claim();}));});
+self.addEventListener("fetch",function(e){if(e.request.method!=="GET")return;e.respondWith(caches.match(e.request).then(function(r){return r||fetch(e.request).then(function(res){var cp=res.clone();caches.open(C).then(function(c){c.put(e.request,cp);});return res;}).catch(function(){return caches.match("./index.html");});}));});

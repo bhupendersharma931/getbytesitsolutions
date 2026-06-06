@@ -103,6 +103,22 @@ var WHATSAPP_NUMBER = "919999999999";
     });
   }
 
+
+  // Quote calculator
+  var qType = document.getElementById("q-type");
+  if (qType) {
+    function calc(){
+      var base = parseFloat(qType.value);
+      var mult = parseFloat(document.getElementById("q-pages").value);
+      var add = 0;
+      document.querySelectorAll(".q-add:checked").forEach(function(c){ add += parseFloat(c.value); });
+      var total = Math.round((base * mult + add) / 1000) * 1000;
+      document.getElementById("q-amount").textContent = "\u20B9" + total.toLocaleString("en-IN");
+    }
+    document.querySelectorAll("#q-type, #q-pages, .q-add").forEach(function(el){ el.addEventListener("change", calc); });
+    calc();
+  }
+
   // PWA
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", function (){ navigator.serviceWorker.register("sw.js").catch(function (){}); });
