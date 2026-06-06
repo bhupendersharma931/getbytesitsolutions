@@ -1,0 +1,19 @@
+{
+  "company": "GetBytes IT Solutions",
+  "tagline": "We ship production-grade software.",
+  "email": "info@getbytesitsolutions.com",
+  "phone": "",
+  "whatsapp": "",
+  "address": "Delhi, India",
+  "social": {
+    "linkedin": "https://www.linkedin.com/in/getbytes-it-solutions-b43aa0164/",
+    "facebook": "https://www.facebook.com/Getbytesitsolutions-249861328774888/",
+    "twitter": "https://twitter.com/GetbytesS"
+  },
+  "prices": {
+    "starter": "₹14,999",
+    "business": "₹39,999",
+    "enterprise": "Custom"
+  },
+  "formspreeId": ""
+}

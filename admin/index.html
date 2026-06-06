@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Site Admin — GetBytes IT Solutions</title>
+<meta name="robots" content="noindex,nofollow">
+<style>
+  :root{--bg:#0B0F14;--surface:#11161D;--line:#222B36;--text:#E6EDF3;--muted:#8B98A8;--red:#E5331F;--blue:#3B9BF0;--ok:#27c93f}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--text);font-family:system-ui,sans-serif;line-height:1.6;padding:28px 18px}
+  .wrap{max-width:720px;margin:0 auto}
+  h1{font-size:1.5rem;margin-bottom:4px}.sub{color:var(--muted);font-size:.9rem;margin-bottom:22px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:18px}
+  h2{font-size:1.05rem;margin-bottom:14px}
+  label{display:block;font-size:.82rem;color:var(--muted);margin:12px 0 5px}
+  input{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:11px 12px;color:var(--text);font-size:.95rem}
+  input:focus{outline:none;border-color:var(--red)}
+  .row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+  .btn{background:var(--red);color:#fff;border:0;border-radius:8px;padding:12px 20px;font-weight:700;cursor:pointer;font-size:.95rem}
+  .btn:disabled{opacity:.5;cursor:default}
+  .btn-ghost{background:transparent;border:1px solid var(--line);color:var(--text)}
+  .msg{font-size:.9rem;margin-top:12px;min-height:1.2em}.msg.ok{color:var(--ok)}.msg.err{color:var(--red)}
+  .note{font-size:.82rem;color:var(--muted);background:rgba(59,155,240,.08);border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:8px;padding:12px 14px;margin-bottom:18px}
+  code{font-family:ui-monospace,monospace;background:var(--bg);padding:2px 6px;border-radius:5px;border:1px solid var(--line)}
+  .hide{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Site Admin</h1>
+  <p class="sub">Edit your site content and publish — no code needed.</p>
+
+  <div class="note">
+    This commits <code>content/settings.json</code> to your GitHub repo using a token you provide.
+    Create a <b>fine-grained token</b> with <b>Contents: Read &amp; write</b> on <code>getbytesitsolutions</code>.
+    The token is kept only in this tab's memory (sessionStorage) and never leaves your browser except to GitHub.
+  </div>
+
+  <div class="card" id="authCard">
+    <h2>1 · Connect</h2>
+    <label>GitHub token (github_pat_…)</label>
+    <input id="tok" type="password" placeholder="github_pat_...">
+    <div style="margin-top:14px"><button class="btn" id="connect">Connect &amp; load</button></div>
+    <div class="msg" id="authMsg"></div>
+  </div>
+
+  <div id="editor" class="hide">
+    <div class="card">
+      <h2>2 · Company</h2>
+      <label>Company name</label><input id="company">
+      <label>Tagline</label><input id="tagline">
+      <label>Email</label><input id="email">
+      <div class="row"><div><label>Phone</label><input id="phone"></div>
+        <div><label>WhatsApp (digits)</label><input id="whatsapp" placeholder="9198XXXXXXXX"></div>
+        <div><label>Address</label><input id="address"></div></div>
+    </div>
+    <div class="card">
+      <h2>Social links</h2>
+      <label>LinkedIn</label><input id="linkedin">
+      <label>Facebook</label><input id="facebook">
+      <label>Twitter / X</label><input id="twitter">
+    </div>
+    <div class="card">
+      <h2>Pricing</h2>
+      <div class="row"><div><label>Starter</label><input id="starter"></div>
+        <div><label>Business</label><input id="business"></div>
+        <div><label>Enterprise</label><input id="enterprise"></div></div>
+    </div>
+    <div class="card">
+      <h2>Integrations</h2>
+      <label>Formspree form ID</label><input id="formspreeId" placeholder="xxxxxxx">
+    </div>
+    <div style="display:flex;gap:12px;align-items:center">
+      <button class="btn" id="save">Publish changes</button>
+      <button class="btn btn-ghost" id="logout">Disconnect</button>
+      <span class="msg" id="saveMsg"></span>
+    </div>
+  </div>
+</div>
+
+<script>
+  var OWNER="bhupendersharma931", REPO="getbytesitsolutions", PATH="content/settings.json";
+  var sha=null, tok="";
+  var $=function(id){return document.getElementById(id);};
+  function token(){ try{return sessionStorage.getItem("gb-admin-tok")||"";}catch(e){return "";} }
+
+  function api(method, body){
+    return fetch("https://api.github.com/repos/"+OWNER+"/"+REPO+"/contents/"+PATH,{
+      method:method, headers:{Authorization:"Bearer "+tok, Accept:"application/vnd.github+json"},
+      body: body?JSON.stringify(body):undefined
+    });
+  }
+  function b64encode(str){ return btoa(unescape(encodeURIComponent(str))); }
+  function b64decode(str){ return decodeURIComponent(escape(atob(str.replace(/\n/g,"")))); }
+
+  function load(){
+    return api("GET").then(function(r){
+      if(r.status===401||r.status===403) throw new Error("Token rejected — check it has Contents: Read & write.");
+      if(!r.ok) throw new Error("Could not load settings (HTTP "+r.status+").");
+      return r.json();
+    }).then(function(d){
+      sha=d.sha; var s=JSON.parse(b64decode(d.content));
+      $("company").value=s.company||""; $("tagline").value=s.tagline||""; $("email").value=s.email||"";
+      $("phone").value=s.phone||""; $("whatsapp").value=s.whatsapp||""; $("address").value=s.address||"";
+      var so=s.social||{}; $("linkedin").value=so.linkedin||""; $("facebook").value=so.facebook||""; $("twitter").value=so.twitter||"";
+      var p=s.prices||{}; $("starter").value=p.starter||""; $("business").value=p.business||""; $("enterprise").value=p.enterprise||"";
+      $("formspreeId").value=s.formspreeId||"";
+      $("authCard").classList.add("hide"); $("editor").classList.remove("hide");
+    });
+  }
+  function gather(){
+    return {company:$("company").value,tagline:$("tagline").value,email:$("email").value,phone:$("phone").value,
+      whatsapp:$("whatsapp").value,address:$("address").value,
+      social:{linkedin:$("linkedin").value,facebook:$("facebook").value,twitter:$("twitter").value},
+      prices:{starter:$("starter").value,business:$("business").value,enterprise:$("enterprise").value},
+      formspreeId:$("formspreeId").value};
+  }
+  function setMsg(id,t,c){ var e=$(id); e.textContent=t; e.className="msg "+(c||""); }
+
+  $("connect").addEventListener("click", function(){
+    tok=$("tok").value.trim(); if(!tok){ setMsg("authMsg","Please paste a token.","err"); return; }
+    try{ sessionStorage.setItem("gb-admin-tok",tok); }catch(e){}
+    setMsg("authMsg","Connecting…","");
+    load().catch(function(e){ setMsg("authMsg",e.message,"err"); });
+  });
+  $("save").addEventListener("click", function(){
+    setMsg("saveMsg","Publishing…",""); $("save").disabled=true;
+    var content=b64encode(JSON.stringify(gather(),null,2));
+    api("PUT",{message:"admin: update site settings",content:content,sha:sha}).then(function(r){
+      if(!r.ok) throw new Error("Save failed (HTTP "+r.status+").");
+      return r.json();
+    }).then(function(d){ sha=d.content.sha; setMsg("saveMsg","Published! Live in ~1 min.","ok"); })
+      .catch(function(e){ setMsg("saveMsg",e.message,"err"); })
+      .finally(function(){ $("save").disabled=false; });
+  });
+  $("logout").addEventListener("click", function(){ try{sessionStorage.removeItem("gb-admin-tok");}catch(e){} location.reload(); });
+
+  // auto-connect if a token is already in this session
+  (function(){ var t=token(); if(t){ tok=t; load().catch(function(){}); } })();
+</script>
+</body>
+</html>

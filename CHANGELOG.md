@@ -3,6 +3,22 @@
 All notable changes to this project are recorded here.
 Format: Semantic Versioning (MAJOR.MINOR.PATCH).
 
+## [v1.1.0] — AI assistant + self-contained CMS
+### Added
+- AI assistant chat widget (js/assistant.js) on every page. Works now with smart scripted
+  answers (services, pricing, tech, contact) and NO backend; upgrade to real Claude AI by
+  setting ASSISTANT_ENDPOINT and deploying the proxy in /backend.
+- backend/assistant-aspnet.cs — ASP.NET Core 8 proxy that calls Anthropic with a server-side
+  key and a GetBytes system prompt (front-end posts {message,history}, gets {reply}).
+- Self-contained CMS:
+  - content/settings.json — editable company info, contact, socials, prices, integrations.
+  - js/content.js — applies settings.json to pages (emails, social links, prices).
+  - admin/ — password/token-protected editor that commits settings.json to the repo via the
+    GitHub API (fine-grained token, Contents: read & write). No external OAuth service needed.
+  - package.html prices tagged with data-price so the CMS controls them.
+### Notes
+- A live AI demo (Claude-powered) was shared separately; it requires the backend to run on
+  the public site (an API key must never sit in client-side code).
 ## [v1.0.0] — Production launch (Terminal theme live at root)
 ### Changed
 - Promoted the Terminal / Code-Editor theme to the production root. The live site at
