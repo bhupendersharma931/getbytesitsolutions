@@ -3,6 +3,12 @@
 All notable changes to this project are recorded here.
 Format: Semantic Versioning (MAJOR.MINOR.PATCH).
 
+## [v1.2.0] — Consolidated to single production version
+### Changed
+- Removed archived alternative themes (/themes/) and old staging (/v0.4.0/). The repo is now
+  just the live production website (Terminal theme + assistant + CMS).
+- Those themes remain fully recoverable from tags v0.5.0–v0.9.0 if ever needed.
+
 ## [v1.1.0] — AI assistant + self-contained CMS
 ### Added
 - AI assistant chat widget (js/assistant.js) on every page. Works now with smart scripted

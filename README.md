@@ -14,12 +14,14 @@ Redeveloped marketing website for GetBytes IT Solutions (Delhi-based software, w
 - `js/app.js` — scripts (theme toggle, menu, counters, FAQ, portfolio filter, WhatsApp, quote calc, PWA, contact form)
 - `assets/` — logo, favicon, og-image
 - `manifest.json`, `sw.js` — PWA;  `robots.txt`, `sitemap.xml` — SEO
-- `themes/` — archived alternative themes (Bento, Aurora, Editorial, Brutalist, Minimal, Terminal)
 - `CHANGELOG.md` — revision history / notes;  `SECURITY.md` — hardening notes
 
 ## Personalise before going public
 - `js/app.js`: set `WHATSAPP_NUMBER` and `FORM_ENDPOINT` (Formspree)
 - Replace placeholder prices (package.html), portfolio items (work.html), blog content
+
+## Status
+- Live: Terminal theme, single production version. Earlier theme options preserved in git tags v0.5.0–v0.9.0.
 
 ## Roadmap
 - [x] Homepage design (v0.1.0–v0.2.0)
